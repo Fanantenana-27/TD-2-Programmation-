@@ -56,6 +56,7 @@ Debut
 Fin       
 */
 #include <stdio.h>
+#include <stdlib.h>
 #define N 50
 int main ()
 {
