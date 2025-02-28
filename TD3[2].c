@@ -3,9 +3,8 @@ Algorithme Suppression des occurrences de la valeur 0 dans le tableau
 Constante
     N = 50; 
 Variables 
-    i, n , j, k: entiers ;
+    i, n , j: entiers ;
     T : Tableau entier [N];
-    Tab : Tableau entier [N];
 Début 
     i <- 0;
     Faire
@@ -20,19 +19,21 @@ Début
         Écrire("Entrez un nombre entier n ");
         Lire(T[i]);
     FinPour 
-    k <- 0;
     j <- 0;
     Pour (i<-0;i<n;i<-i+1) 
-        Si (T[i]=0) Alors 
-            k <- k + 1;
-            continue;
+        Si (T[i]<>0) Alors 
+           T[j] <- T[i];
+           j <- j + 1;
         FinSi 
-        Tab[j] <- T[i];
-        j <- j + 1;
     FinPour   
-    Pour (j<-0;j<n-k;j<-j+1)   
-        Écrire("Tableau[", j, "] =", Tab[j] );
+    Pour (i<-j;i<n;i<-i+1)   
+        T[i] <- 0;
     FinPour 
+    Pour (i<-0;i<n;i<-i+1) 
+        Si (T[i]<>0) Alors 
+            Ecrire("T[",i,"] = ",T[i]);
+        FinSi
+    FinPour
 Fin       
 */
 #include <stdio.h>
@@ -40,9 +41,8 @@ Fin
 #define N 50
 int main ()
 {
-    int i,n, j, k;
+    int i,n, j;
     int T[N];
-    int Tab[N];
     i = 0;
     do
     {
@@ -60,21 +60,25 @@ int main ()
         printf(" Entrez un nombre entier n :");
         scanf("%d", &T[i]);
     }
-    k = 0;
-    j = 0;
+    j=0;
     for (i=0;i<n;i++)
     {
-        if (T[i]==0)
+        if (T[i]!=0)
         {
-            k++;
-            continue;
+            T[j]=T[i];
+            j++;
         }
-        Tab[j] = T[i];
-        j++;
     }
-    for (j=0;j<n-k;j++)
+    for (i=j;i<n;i++)
     {
-        printf("Tableau[%d]=%d \n", j, Tab[j]);
+        T[i]=0;
+    }
+    for (i=0;i<n;i++)
+    {
+        if (T[i]!=0)
+        {
+            printf("T[%d]=%d \n", i, T[i]);
+        }
     }
     return (0);
 }
