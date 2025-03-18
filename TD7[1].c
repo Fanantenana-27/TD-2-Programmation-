@@ -28,7 +28,7 @@ Debut
 	Pour (i<-0;i<n;i++)
 		Pour (j<-0;j<n;j++)
 			Si (i=j) Alors
-				S[i]<-U[i]+V[j];
+				S[i]<-U[i]*V[j];
 			FinSi
 		FinPour
 	FinPour
@@ -76,7 +76,7 @@ int main ()
 		{
 			if (i==j)
 			{
-				S[i]=U[i]+V[j];
+				S[i]=U[i]*V[j];
 			}
 		}
 	}
