@@ -62,7 +62,7 @@ int main ()
 {
 	int i,j, n, k,M;
 	int T[N];
-    int Tab[N];
+ int Tab[N];
 	int TPOS[N];
 	int TNEG[N];
 	i = 0;
